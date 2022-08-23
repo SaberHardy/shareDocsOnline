@@ -1,0 +1,15 @@
+{% extends 'docsApp/base.html' %}
+
+{% block content %}
+    <div class="mx-5 my-5">
+        <form action="{% url 'upload_file' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Default file input example</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+
+            <button class="btn btn-outline-info" type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}
