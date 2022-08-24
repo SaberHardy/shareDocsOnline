@@ -10,15 +10,23 @@
                 <th scope="col">File name</th>
                 <th scope="col">Size</th>
                 <th scope="col">Date uploaded</th>
+                <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
+            {% if all_files %}
+                {% for file in all_files %}
+                    <tr>
+                        <th scope="row">{{ file.id }}</th>
+                        <td>{{ file.document }}</td>
+                        <td>{{ file.document.size|filesizeformat }}</td>
+                        <td>{{ file.uploaded_at|date }}</td>
+                        <td><a href=""><i class="bi bi-trash3 text-danger"></i></a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <h2>No files to display</h2>
+            {% endif %}
             </tbody>
         </table>
     </div>
