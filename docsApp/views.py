@@ -1,4 +1,7 @@
-from django.http import Http404
+import os
+
+from django.conf import settings
+from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from docsApp.forms import DocumentForm
 from docsApp.models import Document

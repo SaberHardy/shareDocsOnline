@@ -10,7 +10,10 @@ class DocumentForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['document'].label = 'Upload Your File'
         self.fields['document'].required = True
-        self.fields['document'].widget.attrs.update({'class': 'form-control', 'type': 'file'})
+        self.fields['document'].widget.attrs.update({'class': 'form-control', 'type': 'file',
+                                                     'accept': ".csv, application/vnd.openxmlformats-"
+                                                               "officedocument.spreadsheetml.sheet,"
+                                                               "application/vnd.ms-excel"})
         self.fields['description'].label = 'File description'
         # self.fields['description'].placeholder = 'Add some description to your file you will upload....'
 
@@ -19,5 +22,5 @@ class DocumentForm(forms.ModelForm):
         fields = ['document', 'description', ]
         widgets = {
             'description': forms.Textarea(attrs={'class': 'form-control',
-                                          'placeholder': 'Type your comment here'}),
+                                                 'placeholder': 'Type your comment here'}),
         }
