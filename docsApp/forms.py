@@ -17,3 +17,7 @@ class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
         fields = ['document', 'description', ]
+        widgets = {
+            'description': forms.Textarea(attrs={'class': 'form-control',
+                                          'placeholder': 'Type your comment here'}),
+        }
